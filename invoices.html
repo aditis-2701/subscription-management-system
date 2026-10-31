@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightLoop | Invoices</title>
+
+    <link rel="stylesheet" href="css/invoices.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>BRIGHTLOOP</h1>
+        <p>Subscription Management System</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="subscriptions.html">Subscriptions</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="invoices.html">Invoices</a></li>
+            <li><a href="payments.html">Payments</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <h2>Invoice Management</h2>
+        <p>View and manage customer invoices.</p>
+
+        <!-- Invoice List -->
+
+        <section>
+            <h3>Invoice List</h3>
+
+            <table border="1" cellpadding="10">
+
+                <tr>
+                    <th>Invoice Number</th>
+                    <th>Customer</th>
+                    <th>Invoice Date</th>
+                    <th>Due Date</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>INV-001</td>
+                    <td>Rahul Sharma</td>
+                    <td>01-10-2026</td>
+                    <td>15-10-2026</td>
+                    <td>₹12,000</td>
+                    <td>Pending</td>
+                </tr>
+
+                <tr>
+                    <td>INV-002</td>
+                    <td>Priya Singh</td>
+                    <td>05-10-2026</td>
+                    <td>20-10-2026</td>
+                    <td>₹8,000</td>
+                    <td>Confirmed</td>
+                </tr>
+
+                <tr>
+                    <td>INV-003</td>
+                    <td>Aman Verma</td>
+                    <td>10-10-2026</td>
+                    <td>25-10-2026</td>
+                    <td>₹25,000</td>
+                    <td>Cancelled</td>
+                </tr>
+
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- Invoice Details -->
+
+        <section>
+            <h3>Invoice Details</h3>
+
+            <form action="invoices.html" method="get">
+
+                <label for="invoice-number">Invoice Number:</label>
+                <input type="text" id="invoice-number"
+                       name="invoice_number" value="INV-004">
+
+                <br><br>
+
+                <h3>Customer Details</h3>
+
+                <label for="customer-name">Customer Name:</label>
+                <input type="text" id="customer-name"
+                       name="customer_name" placeholder="Enter customer name">
+
+                <br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email"
+                       name="email" placeholder="Enter email address">
+
+                <br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone"
+                       name="phone" placeholder="Enter phone number">
+
+                <br><br>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address"
+                          placeholder="Enter customer address"></textarea>
+
+                <br><br>
+
+                <h3>Product and Subscription Details</h3>
+
+                <label for="product">Product Name:</label>
+                <input type="text" id="product"
+                       name="product" placeholder="Enter product name">
+
+                <br><br>
+
+                <label for="plan">Subscription Plan:</label>
+                <select id="plan" name="plan">
+                    <option value="">Select Plan</option>
+                    <option value="basic">Basic</option>
+                    <option value="premium">Premium</option>
+                    <option value="enterprise">Enterprise</option>
+                </select>
+
+                <br><br>
+
+                <label for="duration">Subscription Duration:</label>
+                <select id="duration" name="duration">
+                    <option value="">Select Duration</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+
+                <br><br>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity"
+                       name="quantity" min="1" placeholder="Enter quantity">
+
+                <br><br>
+
+                <label for="unit-price">Unit Price (₹):</label>
+                <input type="number" id="unit-price"
+                       name="unit_price" min="0" placeholder="Enter unit price">
+
+                <br><br>
+
+                <h3>Tax and Discount Breakdown</h3>
+
+                <label for="subtotal">Subtotal (₹):</label>
+                <input type="number" id="subtotal"
+                       name="subtotal" placeholder="Enter subtotal">
+
+                <br><br>
+
+                <label for="tax">Tax (%):</label>
+                <input type="number" id="tax"
+                       name="tax" min="0" placeholder="Enter tax percentage">
+
+                <br><br>
+
+                <label for="discount">Discount (₹):</label>
+                <input type="number" id="discount"
+                       name="discount" min="0" placeholder="Enter discount">
+
+                <br><br>
+
+                <label for="total">Total Amount (₹):</label>
+                <input type="number" id="total"
+                       name="total" placeholder="Enter total amount">
+
+                <br><br>
+
+                <label for="invoice-status">Invoice Status:</label>
+                <select id="invoice-status" name="status">
+                    <option value="Pending">Pending</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+
+                <br><br>
+
+                <!-- Action Buttons -->
+
+                <button type="submit" name="action" value="confirm">
+                    Confirm Invoice
+                </button>
+
+                <button type="submit" name="action" value="cancel">
+                    Cancel Invoice
+                </button>
+
+                <button type="button" onclick="window.print()">
+                    Print Invoice
+                </button>
+
+                <button type="button" onclick="window.print()">
+                    Send Invoice
+                </button>
+
+            </form>
+        </section>
+
+    </main>
+
+</body>
+</html>
