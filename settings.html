@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brightloop | Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>BRIGHTLOOP</h1>
+        <p>Subscription Management System</p>
+    </header>
+
+    <!-- MAIN NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="subscriptions.html">Subscriptions</a></li>
+            <li><a href="invoices.html">Invoices</a></li>
+            <li><a href="payments.html">Payments</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section id="settings-heading">
+            <h2>Settings</h2>
+            <p>Manage your account, preferences and workspace configuration.</p>
+        </section>
+
+        <!-- PROFILE SETTINGS -->
+        <section id="profile-settings">
+            <h2>Profile Settings</h2>
+            <p>Manage your personal account information.</p>
+
+            <form action="#" method="post">
+
+                <label for="profile-name">Full Name</label>
+                <input type="text" id="profile-name"
+                    name="full_name" placeholder="Enter your name"
+                    autocomplete="name" required>
+
+                <label for="profile-email">Email Address</label>
+                <input type="email" id="profile-email"
+                    name="email" placeholder="Enter your email"
+                    autocomplete="email" required>
+
+                <label for="profile-phone">Phone Number</label>
+                <input type="tel" id="profile-phone"
+                    name="phone" placeholder="Enter phone number"
+                    pattern="[0-9]{10}" maxlength="10">
+
+                <label for="profile-role">Account Role</label>
+                <input type="text" id="profile-role"
+                    name="role" value="Subscription Manager" readonly>
+
+                <button type="submit">Save Profile</button>
+
+            </form>
+        </section>
+
+
+        <!-- COMPANY SETTINGS -->
+        <section id="company-settings">
+            <h2>Company Settings</h2>
+            <p>Configure your organization details.</p>
+
+            <form action="#" method="post">
+
+                <label for="company-name">Company Name</label>
+                <input type="text" id="company-name"
+                    name="company_name" placeholder="Enter company name"
+                    required>
+
+                <label for="company-email">Business Email</label>
+                <input type="email" id="company-email"
+                    name="business_email" placeholder="Enter business email"
+                    required>
+
+                <label for="company-address">Company Address</label>
+                <textarea id="company-address" name="address"
+                    rows="3" placeholder="Enter company address"></textarea>
+
+                <label for="company-website">Website URL</label>
+                <input type="url" id="company-website"
+                    name="website" placeholder="https://example.com">
+
+                <label for="company-tax">Tax Identification Number</label>
+                <input type="text" id="company-tax"
+                    name="tax_id" placeholder="Enter tax identification number">
+
+                <button type="submit">Save Company Details</button>
+
+            </form>
+        </section>
+
+
+        <!-- NOTIFICATION PREFERENCES -->
+        <section id="notification-settings">
+            <h2>Notification Preferences</h2>
+            <p>Choose which updates you want to receive.</p>
+
+            <form action="#" method="post">
+
+                <div>
+                    <input type="checkbox" id="payment-alerts"
+                        name="notifications[]" value="payment" checked>
+                    <label for="payment-alerts">Payment Notifications</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="subscription-alerts"
+                        name="notifications[]" value="subscription" checked>
+                    <label for="subscription-alerts">
+                        Subscription Renewal Reminders
+                    </label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="invoice-alerts"
+                        name="notifications[]" value="invoice" checked>
+                    <label for="invoice-alerts">Invoice Notifications</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="customer-alerts"
+                        name="notifications[]" value="customer">
+                    <label for="customer-alerts">New Customer Updates</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="marketing-alerts"
+                        name="notifications[]" value="marketing">
+                    <label for="marketing-alerts">Product Updates and Announcements</label>
+                </div>
+
+                <button type="submit">Save Notification Preferences</button>
+
+            </form>
+        </section>
+
+
+        <!-- SECURITY SETTINGS -->
+        <section id="security-settings">
+            <h2>Security & Privacy</h2>
+            <p>Manage your password and account security.</p>
+
+            <form action="#" method="post">
+
+                <label for="current-password">Current Password</label>
+                <input type="password" id="current-password"
+                    name="current_password"
+                    autocomplete="current-password" required>
+
+                <label for="new-password">New Password</label>
+                <input type="password" id="new-password"
+                    name="new_password"
+                    autocomplete="new-password"
+                    minlength="8" required>
+
+                <label for="confirm-password">Confirm New Password</label>
+                <input type="password" id="confirm-password"
+                    name="confirm_password"
+                    autocomplete="new-password"
+                    minlength="8" required>
+
+                <button type="submit">Update Password</button>
+
+            </form>
+
+            <h3>Two-Factor Authentication</h3>
+            <p>Add an additional layer of security to your account.</p>
+
+            <label for="two-factor">Two-Factor Authentication</label>
+            <select id="two-factor" name="two_factor">
+                <option value="disabled">Disabled</option>
+                <option value="email">Email Verification</option>
+                <option value="authenticator">Authenticator App</option>
+            </select>
+
+            <button type="button">Save Security Settings</button>
+
+        </section>
+
+
+        <!-- BILLING PREFERENCES -->
+        <section id="billing-settings">
+            <h2>Billing Preferences</h2>
+            <p>Configure your default billing options.</p>
+
+            <form action="#" method="post">
+
+                <label for="currency">Default Currency</label>
+                <select id="currency" name="currency" required>
+                    <option value="INR">Indian Rupee (INR)</option>
+                    <option value="USD">US Dollar (USD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                    <option value="GBP">British Pound (GBP)</option>
+                </select>
+
+                <label for="billing-cycle">Default Billing Cycle</label>
+                <select id="billing-cycle" name="billing_cycle">
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="half-yearly">Half-Yearly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+
+                <label for="payment-method">Preferred Payment Method</label>
+                <select id="payment-method" name="payment_method">
+                    <option value="card">Credit / Debit Card</option>
+                    <option value="upi">UPI</option>
+                    <option value="netbanking">Net Banking</option>
+                    <option value="bank-transfer">Bank Transfer</option>
+                </select>
+
+                <label for="tax-region">Tax Region</label>
+                <select id="tax-region" name="tax_region">
+                    <option value="india">India - GST</option>
+                    <option value="international">International</option>
+                </select>
+
+                <button type="submit">Save Billing Preferences</button>
+
+            </form>
+        </section>
+
+
+        <!-- TEAM MANAGEMENT -->
+        <section id="team-settings">
+            <h2>Team & Role Management</h2>
+            <p>Manage team access and permissions.</p>
+
+            <form action="#" method="post">
+
+                <label for="team-email">Invite Team Member</label>
+                <input type="email" id="team-email"
+                    name="team_email" placeholder="Enter team member email"
+                    required>
+
+                <label for="team-role">Assign Role</label>
+                <select id="team-role" name="team_role" required>
+                    <option value="" disabled selected>Select a role</option>
+                    <option value="admin">Administrator</option>
+                    <option value="manager">Subscription Manager</option>
+                    <option value="finance">Finance Team</option>
+                    <option value="viewer">Read-Only Viewer</option>
+                </select>
+
+                <button type="submit">Invite Member</button>
+
+            </form>
+
+            <h3>Available Roles</h3>
+
+            <ul>
+                <li>Administrator - Full system access</li>
+                <li>Subscription Manager - Manage customers and subscriptions</li>
+                <li>Finance Team - Manage invoices, payments and reports</li>
+                <li>Read-Only Viewer - View information without editing</li>
+            </ul>
+
+        </section>
+
+
+        <!-- INTEGRATION SETTINGS -->
+        <section id="integration-settings">
+            <h2>Integrations</h2>
+            <p>Manage external services connected to Brightloop.</p>
+
+            <form action="#" method="post">
+
+                <h3>Payment Gateway</h3>
+                <label for="gateway">Select Payment Gateway</label>
+                <select id="gateway" name="gateway">
+                    <option value="">Select Gateway</option>
+                    <option value="razorpay">Razorpay</option>
+                    <option value="stripe">Stripe</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+
+                <h3>Email Service</h3>
+                <label for="email-service">Email Provider</label>
+                <select id="email-service" name="email_service">
+                    <option value="">Select Provider</option>
+                    <option value="smtp">SMTP</option>
+                    <option value="sendgrid">SendGrid</option>
+                    <option value="mailgun">Mailgun</option>
+                </select>
+
+                <button type="submit">Save Integration Preferences</button>
+
+            </form>
+        </section>
+
+
+        <!-- ACCOUNT ACTIONS -->
+        <section id="account-actions">
+            <h2>Account Actions</h2>
+
+            <button type="button">Export Account Data</button>
+
+            <button type="button">Log Out</button>
+
+            <button type="button">Deactivate Account</button>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Brightloop Software. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
