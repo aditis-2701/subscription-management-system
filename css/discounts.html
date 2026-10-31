@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightLoop | Discounts</title>
+
+    <link rel="stylesheet" href="css/discounts.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>BRIGHTLOOP</h1>
+        <p>Subscription Management System</p>
+    </header>
+
+    <!-- Navigation -->
+
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="subscriptions.html">Subscriptions</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="invoices.html">Invoices</a></li>
+            <li><a href="payments.html">Payments</a></li>
+            <li><a href="discounts.html">Discounts</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <h2>Discount Management</h2>
+        <p>Create and manage discount offers for products and subscriptions.</p>
+
+        <!-- Create Discount Form -->
+
+        <section>
+            <h3>Create New Discount</h3>
+
+            <form action="discounts.html" method="get">
+
+                <label for="discount-name">Discount Name:</label>
+                <input type="text" id="discount-name" name="discount_name"
+                       placeholder="Enter discount name" required>
+
+                <br><br>
+
+                <label for="discount-code">Discount Code:</label>
+                <input type="text" id="discount-code" name="discount_code"
+                       placeholder="Example: SAVE20" required>
+
+                <br><br>
+
+                <label for="discount-type">Discount Type:</label>
+                <select id="discount-type" name="discount_type" required>
+                    <option value="">Select Discount Type</option>
+                    <option value="fixed">Fixed Amount</option>
+                    <option value="percentage">Percentage</option>
+                </select>
+
+                <br><br>
+
+                <label for="discount-value">Discount Value:</label>
+                <input type="number" id="discount-value" name="discount_value"
+                       min="0" step="0.01" placeholder="Enter discount value" required>
+
+                <br><br>
+
+                <label for="minimum-purchase">Minimum Purchase Amount (₹):</label>
+                <input type="number" id="minimum-purchase" name="minimum_purchase"
+                       min="0" placeholder="Enter minimum purchase">
+
+                <br><br>
+
+                <label for="quantity">Minimum Quantity Requirement:</label>
+                <input type="number" id="quantity" name="minimum_quantity"
+                       min="1" placeholder="Enter minimum quantity">
+
+                <br><br>
+
+                <h3>Discount Validity</h3>
+
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start_date" required>
+
+                <br><br>
+
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" name="end_date" required>
+
+                <br><br>
+
+                <label for="usage-limit">Maximum Usage Limit:</label>
+                <input type="number" id="usage-limit" name="usage_limit"
+                       min="1" placeholder="Enter usage limit">
+
+                <br><br>
+
+                <h3>Applicable Items</h3>
+
+                <label for="applicable-type">Apply Discount To:</label>
+                <select id="applicable-type" name="applicable_type" required>
+                    <option value="">Select Category</option>
+                    <option value="products">Products</option>
+                    <option value="subscriptions">Subscriptions</option>
+                    <option value="both">Both Products and Subscriptions</option>
+                </select>
+
+                <br><br>
+
+                <label for="applicable-product">Select Product:</label>
+                <select id="applicable-product" name="applicable_product">
+                    <option value="">Choose Product</option>
+                    <option value="software">Software License</option>
+                    <option value="cloud">Cloud Storage</option>
+                    <option value="support">Technical Support</option>
+                </select>
+
+                <br><br>
+
+                <label for="applicable-plan">Select Subscription Plan:</label>
+                <select id="applicable-plan" name="applicable_plan">
+                    <option value="">Choose Subscription Plan</option>
+                    <option value="basic">Basic</option>
+                    <option value="premium">Premium</option>
+                    <option value="enterprise">Enterprise</option>
+                </select>
+
+                <br><br>
+
+                <label for="description">Description:</label>
+                <br>
+                <textarea id="description" name="description"
+                          placeholder="Enter discount details"></textarea>
+
+                <br><br>
+
+                <button type="submit">Create Discount</button>
+
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Discount List -->
+
+        <section>
+            <h3>Available Discounts</h3>
+
+            <table border="1" cellpadding="10">
+
+                <tr>
+                    <th>Discount Name</th>
+                    <th>Code</th>
+                    <th>Type</th>
+                    <th>Value</th>
+                    <th>Minimum Purchase</th>
+                    <th>Validity</th>
+                    <th>Usage Limit</th>
+                    <th>Applicable To</th>
+                </tr>
+
+                <tr>
+                    <td>Festive Offer</td>
+                    <td>FESTIVE20</td>
+                    <td>Percentage</td>
+                    <td>20%</td>
+                    <td>₹1,000</td>
+                    <td>01-10-2026 to 31-10-2026</td>
+                    <td>100</td>
+                    <td>Products</td>
+                </tr>
+
+                <tr>
+                    <td>New Customer Offer</td>
+                    <td>WELCOME500</td>
+                    <td>Fixed</td>
+                    <td>₹500</td>
+                    <td>₹2,000</td>
+                    <td>01-10-2026 to 30-11-2026</td>
+                    <td>50</td>
+                    <td>Subscriptions</td>
+                </tr>
+
+                <tr>
+                    <td>Premium Deal</td>
+                    <td>PREMIUM10</td>
+                    <td>Percentage</td>
+                    <td>10%</td>
+                    <td>₹5,000</td>
+                    <td>01-10-2026 to 31-12-2026</td>
+                    <td>200</td>
+                    <td>Both</td>
+                </tr>
+
+            </table>
+        </section>
+
+    </main>
+
+</body>
+</html>

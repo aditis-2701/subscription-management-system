@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightLoop | Payments</title>
+
+    <link rel="stylesheet" href="css/payments.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>BRIGHTLOOP</h1>
+        <p>Subscription Management System</p>
+    </header>
+
+    <!-- Navigation -->
+
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="subscriptions.html">Subscriptions</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="invoices.html">Invoices</a></li>
+            <li><a href="payments.html">Payments</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <h2>Payment Management</h2>
+        <p>Track and manage customer payments.</p>
+
+        <!-- Payment Form -->
+
+        <section>
+            <h3>Record New Payment</h3>
+
+            <form action="payments.html" method="get">
+
+                <label for="payment-id">Payment ID:</label>
+                <input type="text" id="payment-id" name="payment_id"
+                       placeholder="Enter payment ID">
+
+                <br><br>
+
+                <label for="invoice">Select Invoice:</label>
+                <select id="invoice" name="invoice" required>
+                    <option value="">Choose Invoice</option>
+                    <option value="INV-001">INV-001 - Rahul Sharma</option>
+                    <option value="INV-002">INV-002 - Priya Singh</option>
+                    <option value="INV-003">INV-003 - Aman Verma</option>
+                </select>
+
+                <br><br>
+
+                <label for="method">Payment Method:</label>
+                <select id="method" name="payment_method" required>
+                    <option value="">Choose Payment Method</option>
+                    <option value="upi">UPI</option>
+                    <option value="card">Credit/Debit Card</option>
+                    <option value="netbanking">Net Banking</option>
+                    <option value="bank">Bank Transfer</option>
+                    <option value="cash">Cash</option>
+                </select>
+
+                <br><br>
+
+                <label for="amount">Payment Amount (₹):</label>
+                <input type="number" id="amount" name="amount"
+                       min="0" step="0.01" placeholder="Enter amount" required>
+
+                <br><br>
+
+                <label for="date">Payment Date:</label>
+                <input type="date" id="date" name="payment_date" required>
+
+                <br><br>
+
+                <label for="status">Payment Status:</label>
+                <select id="status" name="status" required>
+                    <option value="Paid">Paid</option>
+                    <option value="Outstanding">Outstanding</option>
+                    <option value="Overdue">Overdue</option>
+                </select>
+
+                <br><br>
+
+                <label for="notes">Payment Notes:</label>
+                <br>
+                <textarea id="notes" name="notes"
+                          placeholder="Enter payment details or remarks"></textarea>
+
+                <br><br>
+
+                <button type="submit">Record Payment</button>
+
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Payment Status Overview -->
+
+        <section>
+            <h3>Payment Status Overview</h3>
+
+            <table border="1" cellpadding="10">
+
+                <tr>
+                    <th>Payment ID</th>
+                    <th>Invoice Number</th>
+                    <th>Customer</th>
+                    <th>Payment Method</th>
+                    <th>Amount</th>
+                    <th>Payment Date</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>PAY-001</td>
+                    <td>INV-001</td>
+                    <td>Rahul Sharma</td>
+                    <td>UPI</td>
+                    <td>₹12,000</td>
+                    <td>01-10-2026</td>
+                    <td>Paid</td>
+                </tr>
+
+                <tr>
+                    <td>PAY-002</td>
+                    <td>INV-002</td>
+                    <td>Priya Singh</td>
+                    <td>Card</td>
+                    <td>₹8,000</td>
+                    <td>05-10-2026</td>
+                    <td>Outstanding</td>
+                </tr>
+
+                <tr>
+                    <td>PAY-003</td>
+                    <td>INV-003</td>
+                    <td>Aman Verma</td>
+                    <td>Bank Transfer</td>
+                    <td>₹25,000</td>
+                    <td>10-09-2026</td>
+                    <td>Overdue</td>
+                </tr>
+
+            </table>
+        </section>
+
+    </main>
+
+</body>
+</html>
