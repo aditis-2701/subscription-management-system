@@ -1,0 +1,126 @@
+(() => {
+	const sections = Array.from(document.querySelectorAll('main > section'));
+	const sectionIds = new Set(sections.map(section => section.id));
+	const query = new URLSearchParams(window.location.search);
+	const roleSelect = document.getElementById('user-role');
+	const registrationRole = document.getElementById('new-role');
+
+	function showSection(id, updateHash = true) {
+		const activeId = sectionIds.has(id) ? id : 'role-selection';
+		sections.forEach(section => { section.hidden = section.id !== activeId; });
+		if (updateHash) history.replaceState(null, '', `#${activeId}`);
+	}
+
+	function feedback(form, message, isError = false) {
+		let output = form.querySelector('[data-feedback]');
+		if (!output) {
+			output = document.createElement('p');
+			output.dataset.feedback = '';
+			output.setAttribute('role', isError ? 'alert' : 'status');
+			output.setAttribute('aria-live', 'polite');
+			form.append(output);
+		}
+		output.textContent = message;
+		output.classList.toggle('form-error', isError);
+	}
+
+	async function send(path, payload) {
+		const response = await fetch(`/api${path}`, {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(payload)
+		});
+		const result = await response.json();
+		if (!response.ok) throw new Error(result.message || 'The request could not be completed.');
+		return result;
+	}
+
+	const requestedRole = query.get('role');
+	if (requestedRole && roleSelect && [...roleSelect.options].some(option => option.value === requestedRole)) roleSelect.value = requestedRole;
+	if (requestedRole && registrationRole && [...registrationRole.options].some(option => option.value === requestedRole)) registrationRole.value = requestedRole;
+
+	const initialHash = window.location.hash.slice(1);
+	const initialSection = sectionIds.has(initialHash)
+		? initialHash
+		: ['login', 'register'].includes(query.get('mode'))
+			? query.get('mode')
+			: 'role-selection';
+	showSection(initialSection, false);
+
+	roleSelect?.addEventListener('change', () => showSection('login'));
+	document.addEventListener('click', event => {
+		const link = event.target.closest('a[href^="#"]');
+		if (!link || !sectionIds.has(link.hash.slice(1))) return;
+		event.preventDefault();
+		const sectionId = link.hash.slice(1);
+		showSection(sectionId);
+		document.getElementById(sectionId)?.querySelector('input, select, button')?.focus();
+	});
+
+	const loginForm = document.querySelector('#login form');
+	loginForm?.addEventListener('submit', async event => {
+		event.preventDefault();
+		const submit = loginForm.querySelector('[type="submit"]');
+		submit.disabled = true;
+		try {
+			const values = new FormData(loginForm);
+			const payload = { email: values.get('email'), password: values.get('password') };
+			if (roleSelect?.value) payload.role = roleSelect.value;
+			await send('/auth/login', payload);
+			window.location.href = 'dashboard.html';
+		} catch (error) {
+			feedback(loginForm, error.message, true);
+		} finally {
+			submit.disabled = false;
+		}
+	});
+
+	const registerForm = document.querySelector('#register form');
+	const password = document.getElementById('new-password');
+	const confirmPassword = document.getElementById('confirm-password');
+	confirmPassword?.addEventListener('input', () => confirmPassword.setCustomValidity(''));
+	registerForm?.addEventListener('submit', async event => {
+		event.preventDefault();
+		if (password.value !== confirmPassword.value) {
+			confirmPassword.setCustomValidity('Passwords do not match.');
+			confirmPassword.reportValidity();
+			return;
+		}
+		const submit = registerForm.querySelector('[type="submit"]');
+		submit.disabled = true;
+		try {
+			const values = new FormData(registerForm);
+			await send('/auth/register', {
+				name: values.get('full_name'),
+				email: values.get('email'),
+				company: values.get('company'),
+				phone: values.get('phone'),
+				role: values.get('role'),
+				password: values.get('password')
+			});
+			window.location.href = 'dashboard.html';
+		} catch (error) {
+			feedback(registerForm, error.message, true);
+		} finally {
+			submit.disabled = false;
+		}
+	});
+
+	const resetForm = document.querySelector('#reset form');
+	resetForm?.addEventListener('submit', async event => {
+		event.preventDefault();
+		try {
+			await send('/auth/reset', { email: new FormData(resetForm).get('email') });
+			feedback(resetForm, 'If the account exists, password reset instructions will be sent.');
+		} catch (error) {
+			feedback(resetForm, error.message, true);
+		}
+	});
+
+	const newPasswordForm = document.querySelector('#new-password-section form');
+	newPasswordForm?.addEventListener('submit', event => {
+		event.preventDefault();
+		feedback(newPasswordForm, 'Password reset is unavailable until an email delivery provider is configured.', true);
+	});
+})();
