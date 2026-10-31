@@ -10,3 +10,4 @@ venv/
 
 # Local session cookies
 cookies.txt
+admin_cookies.txt
