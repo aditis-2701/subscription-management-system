@@ -1,3 +1,4 @@
+
 import os
 
 from flask import Flask, jsonify
@@ -9,6 +10,8 @@ from models import User, Customer, Product, Plan
 
 from routes.auth import auth_bp
 from routes.customers import customers_bp
+from routes.products import products_bp
+from routes.plan import plans_bp
 
 
 def create_app():
@@ -28,6 +31,8 @@ def create_app():
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(customers_bp)
+    app.register_blueprint(products_bp)
+    app.register_blueprint(plans_bp)
 
     with app.app_context():
         db.create_all()
@@ -71,6 +76,6 @@ if __name__ == "__main__":
 
     app.run(
         host="127.0.0.1",
-        port=5000,
+        port=5001,
         debug=True
     )
