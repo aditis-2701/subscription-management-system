@@ -1,0 +1,280 @@
+
+/* =================================
+   BRIGHTLOOP - PAYMENT MANAGEMENT
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6fa;
+    color: #252a34;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+    background: #151923;
+    color: white;
+    padding: 22px 40px;
+}
+
+header h1 {
+    font-size: 27px;
+    letter-spacing: 2px;
+    color: #e50914;
+}
+
+header p {
+    color: #c5c8d0;
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #202633;
+    padding: 0 30px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    padding: 16px 18px;
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: #e50914;
+    color: white;
+    border-radius: 5px;
+}
+
+/* MAIN CONTENT */
+
+main {
+    max-width: 1250px;
+    margin: 35px auto;
+    padding: 0 25px;
+}
+
+main > h2 {
+    font-size: 27px;
+    color: #202633;
+    margin-bottom: 5px;
+}
+
+main > p {
+    color: #737987;
+    margin-bottom: 28px;
+}
+
+/* SECTIONS */
+
+section {
+    background: white;
+    padding: 28px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(25, 35, 55, 0.06);
+}
+
+section h3 {
+    font-size: 20px;
+    color: #202633;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e9ebf0;
+}
+
+/* PAYMENT FORM */
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 25px;
+}
+
+form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #414858;
+    margin-bottom: -8px;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d9dde5;
+    border-radius: 6px;
+    background: white;
+    color: #252a34;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: 0.2s;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #e50914;
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.08);
+}
+
+form textarea {
+    min-height: 100px;
+    resize: vertical;
+    grid-column: 1 / -1;
+}
+
+form br {
+    display: none;
+}
+
+/* FORM BUTTON */
+
+form button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 12px 25px;
+    background: #e50914;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #bd0610;
+    transform: translateY(-1px);
+}
+
+/* DIVIDER */
+
+hr {
+    border: none;
+    border-top: 1px solid #e3e6ed;
+    margin: 30px 0;
+}
+
+/* PAYMENT TABLE */
+
+section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+    border: none;
+}
+
+section table th {
+    background: #202633;
+    color: white;
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+section table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #e9ebf0;
+    color: #414858;
+    font-size: 13px;
+}
+
+section table tr:hover td {
+    background: #fff5f5;
+}
+
+section table tr:last-child td {
+    border-bottom: none;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 20px;
+    }
+
+    nav {
+        padding: 0 10px;
+    }
+
+    nav ul {
+        gap: 0;
+    }
+
+    nav ul li a {
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+
+    main {
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+
+    section {
+        padding: 20px 15px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    form textarea,
+    form button {
+        grid-column: 1;
+    }
+
+    section table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+
+    main > h2 {
+        font-size: 22px;
+    }
+
+    section h3 {
+        font-size: 18px;
+    }
+
+    nav ul li a {
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+}
