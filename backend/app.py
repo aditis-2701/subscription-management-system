@@ -6,7 +6,9 @@ from flask_cors import CORS
 from config import Config
 from database import db
 from models import User, Customer, Product, Plan
+
 from routes.auth import auth_bp
+from routes.customers import customers_bp
 
 
 def create_app():
@@ -25,6 +27,7 @@ def create_app():
     CORS(app, supports_credentials=True)
 
     app.register_blueprint(auth_bp)
+    app.register_blueprint(customers_bp)
 
     with app.app_context():
         db.create_all()
