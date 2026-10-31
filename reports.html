@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightLoop | Reports</title>
+
+    <link rel="stylesheet" href="css/reports.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>BRIGHTLOOP</h1>
+        <p>Subscription Management System</p>
+    </header>
+
+    <!-- Navigation -->
+
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="subscriptions.html">Subscriptions</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="invoices.html">Invoices</a></li>
+            <li><a href="payments.html">Payments</a></li>
+            <li><a href="discounts.html">Discounts</a></li>
+            <li><a href="reports.html">Reports</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <h2>Business Reports & Analytics</h2>
+        <p>Monitor revenue, payments, subscriptions and business performance.</p>
+
+        <!-- Revenue Reports -->
+
+        <section>
+            <h3>1. Revenue Reports</h3>
+
+            <label for="revenue-period">Select Period:</label>
+            <select id="revenue-period" name="revenue_period">
+                <option>Monthly</option>
+                <option>Quarterly</option>
+                <option>Yearly</option>
+            </select>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>Period</th>
+                    <th>Total Revenue</th>
+                    <th>Growth</th>
+                </tr>
+
+                <tr>
+                    <td>August 2026</td>
+                    <td>₹85,000</td>
+                    <td>8%</td>
+                </tr>
+
+                <tr>
+                    <td>September 2026</td>
+                    <td>₹1,10,000</td>
+                    <td>12%</td>
+                </tr>
+
+                <tr>
+                    <td>October 2026</td>
+                    <td>₹1,35,000</td>
+                    <td>18%</td>
+                </tr>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- Payment Summaries -->
+
+        <section>
+            <h3>2. Payment Summaries</h3>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>Payment Status</th>
+                    <th>Number of Payments</th>
+                    <th>Total Amount</th>
+                </tr>
+
+                <tr>
+                    <td>Paid</td>
+                    <td>120</td>
+                    <td>₹2,50,000</td>
+                </tr>
+
+                <tr>
+                    <td>Outstanding</td>
+                    <td>25</td>
+                    <td>₹45,000</td>
+                </tr>
+
+                <tr>
+                    <td>Overdue</td>
+                    <td>10</td>
+                    <td>₹20,000</td>
+                </tr>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- Subscription Statistics -->
+
+        <section>
+            <h3>3. Subscription Statistics</h3>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>Subscription Status</th>
+                    <th>Total Subscriptions</th>
+                </tr>
+
+                <tr>
+                    <td>Draft</td>
+                    <td>12</td>
+                </tr>
+
+                <tr>
+                    <td>Quotation</td>
+                    <td>20</td>
+                </tr>
+
+                <tr>
+                    <td>Confirmed</td>
+                    <td>15</td>
+                </tr>
+
+                <tr>
+                    <td>Active</td>
+                    <td>85</td>
+                </tr>
+
+                <tr>
+                    <td>Closed</td>
+                    <td>8</td>
+                </tr>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- Overdue Invoice Reports -->
+
+        <section>
+            <h3>4. Overdue Invoice Reports</h3>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>Invoice Number</th>
+                    <th>Customer</th>
+                    <th>Due Date</th>
+                    <th>Pending Amount</th>
+                    <th>Days Overdue</th>
+                </tr>
+
+                <tr>
+                    <td>INV-103</td>
+                    <td>Rahul Sharma</td>
+                    <td>10-10-2026</td>
+                    <td>₹5,000</td>
+                    <td>21</td>
+                </tr>
+
+                <tr>
+                    <td>INV-108</td>
+                    <td>Priya Singh</td>
+                    <td>20-10-2026</td>
+                    <td>₹8,000</td>
+                    <td>11</td>
+                </tr>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- Revenue Leakage Detective -->
+
+        <section>
+            <h3>5. Revenue Leakage Detective</h3>
+
+            <p>Identify potential revenue losses caused by unpaid invoices,
+               failed payments and expired subscriptions.</p>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>Issue</th>
+                    <th>Records Found</th>
+                    <th>Potential Revenue Loss</th>
+                </tr>
+
+                <tr>
+                    <td>Unpaid Invoices</td>
+                    <td>10</td>
+                    <td>₹20,000</td>
+                </tr>
+
+                <tr>
+                    <td>Failed Payments</td>
+                    <td>5</td>
+                    <td>₹12,000</td>
+                </tr>
+
+                <tr>
+                    <td>Expired Subscriptions</td>
+                    <td>3</td>
+                    <td>₹9,000</td>
+                </tr>
+            </table>
+
+            <h4>Total Potential Revenue Leakage: ₹41,000</h4>
+
+            <button type="button" onclick="window.print()">
+                Export Leakage Report
+            </button>
+        </section>
+
+        <hr>
+
+        <!-- Smart Payment Reconciliation -->
+
+        <section>
+            <h3>6. Smart Payment Reconciliation</h3>
+
+            <p>Compare recorded payments with invoice amounts to identify
+               mismatches and pending transactions.</p>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>Invoice Number</th>
+                    <th>Invoice Amount</th>
+                    <th>Received Amount</th>
+                    <th>Difference</th>
+                    <th>Reconciliation Status</th>
+                </tr>
+
+                <tr>
+                    <td>INV-101</td>
+                    <td>₹10,000</td>
+                    <td>₹10,000</td>
+                    <td>₹0</td>
+                    <td>Matched</td>
+                </tr>
+
+                <tr>
+                    <td>INV-102</td>
+                    <td>₹15,000</td>
+                    <td>₹12,000</td>
+                    <td>₹3,000</td>
+                    <td>Mismatch</td>
+                </tr>
+
+                <tr>
+                    <td>INV-103</td>
+                    <td>₹8,000</td>
+                    <td>₹0</td>
+                    <td>₹8,000</td>
+                    <td>Unpaid</td>
+                </tr>
+            </table>
+
+            <button type="button" onclick="window.print()">
+                Export Reconciliation Report
+            </button>
+        </section>
+
+        <hr>
+
+        <!-- What-If Revenue Simulator -->
+
+        <section>
+            <h3>7. What-If Revenue Simulator</h3>
+
+            <p>Explore how changes in subscriptions, pricing and customer
+               retention could affect future revenue.</p>
+
+            <form action="reports.html" method="get">
+
+                <label for="customers">Expected Number of Customers:</label>
+                <input type="number" id="customers" name="customers"
+                       min="1" placeholder="Enter customer count">
+
+                <br><br>
+
+                <label for="price">Average Subscription Price (₹):</label>
+                <input type="number" id="price" name="price"
+                       min="0" placeholder="Enter subscription price">
+
+                <br><br>
+
+                <label for="growth">Expected Customer Growth (%):</label>
+                <input type="number" id="growth" name="growth"
+                       min="0" placeholder="Enter growth percentage">
+
+                <br><br>
+
+                <label for="retention">Expected Retention Rate (%):</label>
+                <input type="number" id="retention" name="retention"
+                       min="0" max="100" placeholder="Enter retention rate">
+
+                <br><br>
+
+                <button type="submit">Simulate Revenue</button>
+
+            </form>
+
+            <h4>Estimated Revenue: ₹0</h4>
+            <p>Enter your assumptions to explore a possible revenue scenario.</p>
+        </section>
+
+        <hr>
+
+        <!-- Audit History -->
+
+        <section>
+            <h3>8. Audit History</h3>
+
+            <p>Track important business activities and changes made in the system.</p>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <th>Date</th>
+                    <th>User</th>
+                    <th>Activity</th>
+                    <th>Module</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr>
+                    <td>31-10-2026</td>
+                    <td>Admin</td>
+                    <td>New customer added</td>
+                    <td>Customers</td>
+                    <td>Created</td>
+                </tr>
+
+                <tr>
+                    <td>30-10-2026</td>
+                    <td>Admin</td>
+                    <td>Invoice INV-101 generated</td>
+                    <td>Invoices</td>
+                    <td>Created</td>
+                </tr>
+
+                <tr>
+                    <td>29-10-2026</td>
+                    <td>Staff</td>
+                    <td>Payment status updated</td>
+                    <td>Payments</td>
+                    <td>Updated</td>
+                </tr>
+
+                <tr>
+                    <td>28-10-2026</td>
+                    <td>Admin</td>
+                    <td>Discount offer created</td>
+                    <td>Discounts</td>
+                    <td>Created</td>
+                </tr>
+            </table>
+        </section>
+
+    </main>
+
+</body>
+</html>
